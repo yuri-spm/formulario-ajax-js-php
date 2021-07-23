@@ -12,70 +12,57 @@
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 <form action="" method="post" id="formulario">
-        <div class="card">
-            <h2 class="card-header">Formulário de cadastro</h2>
-        </div>
-        <div class="form-group">
-            <label id="label-nome" class="align-content-sm-center">Nome Completo</label>
-            <input type="text" class="form-control" name="name" required>
-        </div>
-        <div class="form-group">
-            <label id="label-telefone" class="align-content-sm-center">Telefone</label>
-            <input type="text" class="form-control" name="phone" required>
-        </div>
-        <div class="form-group">
-            <label id="label-email" >Email</label>
-            <input type="email" class="form-control"  name="email" required>
-        </div>
-        <button  id="enviar" class="align-content-sm-center btn btn-primary">Enviar</button>
+    <div class="card">
+        <h2 class="card-header">Formulário de cadastro</h2>
+    </div>
+    <div class="form-group">
+        <label id="label-nome" class="align-content-sm-center">Nome Completo</label>
+        <input type="text" class="form-control" name="name" required>
+    </div>
+    <div class="form-group">
+        <label id="label-telefone" class="align-content-sm-center">Telefone</label>
+        <input type="text" class="form-control" name="phone" required>
+    </div>
+    <div class="form-group">
+        <label id="label-email" >Email</label>
+        <input type="email" class="form-control"  name="email" required>
+    </div>
+    <button  id="enviar" class="align-content-sm-center btn btn-primary">Enviar</button>
 
-
-
-
-    <form action="" method="post" id="formulario2">
-        <div class="card">
-            <h2 class="card-header">Pessoas Cadastradas</h2>
-        </div>
-        <div class="form-group">
-            <label id="label-nome" class="align-content-sm-center">Nome Completo</label>
-            <input type="text" class="form-control" name="name" required>
-        </div>
-        <div class="form-group">
-            <label id="label-telefone" class="align-content-sm-center">Telefone</label>
-            <input type="text" class="form-control" name="phone" required>
-        </div>
-        <div class="form-group">
-            <label id="label-email" >Email</label>
-            <input type="email" class="form-control"  name="email" required>
-        </div>
-    <script>
-
-        $(function() {
-            $('#formulario').submit(function () {
-               $.ajax({
-                   url: "insert.php",
-                   type: 'POST',
-                   data: $('#formulario').serialize(),
-                   success: function (data) {
-                        if ($('#formulario') !== ''){
-                            alert("Formulario enviado com sucesso.")
-                            return false;
-                        } else {
-                            alert("Preencha os dados");
-
+        <script>
+            $(function() {
+                $('#formulario').submit(function () {
+                    $.ajax({
+                        url: "insert.php",
+                        type: 'POST',
+                        data: $('#formulario').serialize(),
+                        success: function (data) {
+                            if ($('#formulario') !== ''){
+                                alert("Formulario enviado com sucesso.")
+                                return false;
+                            } else {
+                                alert("Preencha os dados");
+                            }
                         }
-               }
+                    });
+                    return false;
+                });
             });
-        return false;
-    });
-});
+        </script>
+    </form>
+<table #direita>
+    <tr id="titulo">
+        <td>NOME</td>
+        <td>TELEFONE</td>
+        <td colspan="2">E-MAIL</td>
+    </tr>
+    <tr id="nomes">
 
-
-    </script>
-
-</form>
+        <td>Nome</td>
+        <td>Telefone</td>
+        <td>email</td>
+    </tr>
 </body>
 </html>

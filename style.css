@@ -1,0 +1,69 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: arial;
+}
+
+label, input{
+    display: block;
+    line-height: 30px;
+    height: 30px;
+    outline: none;
+    font-size: 13px;
+    width: 95%;
+}
+
+
+#formulario{
+    width: 330px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 60px;
+    margin-top: 10px;
+    border: 2px solid;
+}
+
+#enviar{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#formulario{
+    width: 35%;
+
+    float: left;
+}
+
+h2{
+    text-align: center;
+}
+#direita{
+    width: 65%;
+    float: left;
+
+}
+
+
+table{
+    background-color: #696969;
+    width: 40%;
+    margin-top: 10px;
+
+
+}
+
+
+tr#titulo{
+    font-weight: bold;
+    background-color: #646464;
+    color: white;
+
+}
+
+tr#nomes {
+    padding: 0px 5px;
+    background-color:#D3D3D3;
+}

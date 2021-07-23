@@ -1,0 +1,49 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: arial;
+}
+
+#formulario{
+    border: 2px solid;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 30%;
+}
+
+.card-header{
+    text-align: center;
+}
+
+#label-nome,
+#label-telefone,
+#label-email{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 2px;
+
+}
+
+#enviar{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#formulario input{
+
+    margin: 8px 0;
+
+}
+
+
+#formulario2{
+#formulario{
+    border: 2px solid;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 60%;
+}
+}

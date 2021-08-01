@@ -40,9 +40,12 @@ label, input{
 h2{
     text-align: center;
 }
+
+
 #direita{
     width: 65%;
     float: left;
+    
 
 }
 

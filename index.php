@@ -30,39 +30,48 @@
         <input type="email" class="form-control"  name="email" required>
     </div>
     <button  id="enviar" class="align-content-sm-center btn btn-primary">Enviar</button>
-
-        <script>
-            $(function() {
-                $('#formulario').submit(function () {
-                    $.ajax({
-                        url: "insert.php",
-                        type: 'POST',
-                        data: $('#formulario').serialize(),
-                        success: function (data) {
-                            if ($('#formulario') !== ''){
-                                alert("Formulario enviado com sucesso.")
-                                return false;
-                            } else {
-                                alert("Preencha os dados");
-                            }
-                        }
-                    });
-                    return false;
-                });
-            });
-        </script>
-    </form>
+</form>
 <table #direita>
     <tr id="titulo">
         <td>NOME</td>
         <td>TELEFONE</td>
         <td colspan="2">E-MAIL</td>
     </tr>
-    <tr id="nomes">
-
-        <td>Nome</td>
-        <td>Telefone</td>
-        <td>email</td>
+        <td id="data-table"></td>
     </tr>
+</table>  
+
+
+<script>
+    $(function() {
+        $('#formulario').submit(function () {
+            $.ajax({
+                url: "insert.php",
+                type: 'POST',
+                data: $('#formulario').serialize(),
+                success: function (data) {
+                    if ($('#formulario') !== ''){
+                        alert("Formulario enviado com sucesso.")
+                        return false;
+                    } else {
+                        alert("Preencha os dados");
+                    }
+                    }
+                });
+            return false;
+        });
+
+        function search(){
+            $.ajax({
+                url:"search.php",
+                method: 'GET',
+                success: function(data){
+                    $("#data-table").html($data);
+                }
+            });
+        }
+    });
+</script>
+
 </body>
 </html>

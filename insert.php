@@ -10,6 +10,8 @@ require ('Core/Helper.php');
         var_dump($email);
         $data = search($email);
         var_dump($data);
+
+
     }
 
   

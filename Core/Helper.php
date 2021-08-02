@@ -41,12 +41,13 @@ function insert($name, $phone , $email){
 
 function search($email){
 
-    $conn = connect()->prepare("SELECT * FROM users WHERE email = :e");
-    $conn->bindValue(":e", $email);
+
+    $conn = connect()->prepare("SELECT email FROM users WHERE email = :e");
+    $conn->bindParam(':e', $email);
     $conn->execute();
 
     $data = $conn->fetch(PDO::FETCH_ASSOC);
-    var_dump($data);
+    var_dump( $data);
 }
 
 
@@ -56,6 +57,8 @@ function search($email){
  * @return void
  */
 function show(){
+
+    $data = new \stdClass();
     $conn = connect()->query('SELECT * FROM users');
     $conn->execute();
 

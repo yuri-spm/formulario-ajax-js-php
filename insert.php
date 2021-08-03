@@ -7,11 +7,11 @@ require ('Core/Helper.php');
         $phone = $_POST['phone'];
         $email = $_POST['email'];
         
-        var_dump($email);
-        $data = search($email);
-        var_dump($data);
-
-
+        
+        if(!search($email)){
+            insertValue($name, $phone, $email);
+        }
+        
     }
 
   

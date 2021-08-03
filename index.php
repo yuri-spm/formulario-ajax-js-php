@@ -14,6 +14,7 @@
 </head>
 <body>
 <form action="" method="post" id="formulario">
+    <div id="msg" hidden></div>
     <div class="card">
         <h2 class="card-header">Formulário de cadastro</h2>
     </div>
@@ -49,15 +50,14 @@
                 url: "insert.php",
                 type: 'POST',
                 data: $('#formulario').serialize(),
-                success: function (data) {
-                    if ($('#formulario') !== ''){
-                        alert("Formulario enviado com sucesso.")
-                        return false;
-                    } else {
-                        alert("Preencha os dados");
-                    }
-                    }
-                });
+                error: function(msgError){
+                    console.log(msgError);
+                },
+                succcess: function(msgSucess){
+                    alert(msgSucess);
+                }    
+                
+            });
             return false;
         });
 
@@ -66,7 +66,7 @@
                 url:"search.php",
                 method: 'GET',
                 success: function(data){
-                    $("#data-table").html($data);
+                    $("#msg").html(data);
                 }
             });
         }

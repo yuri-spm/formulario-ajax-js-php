@@ -2,6 +2,8 @@
 
 require('Connect.php');
 
+
+
 /**
  * Method insert
  *
@@ -11,43 +13,46 @@ require('Connect.php');
  *
  * @return void
  */
-function insert($name, $phone , $email){
+function insertValue($name, $phone , $email){
    
 
     $name = filter_var($_POST['name'],FILTER_SANITIZE_STRIPPED);
     $phone = filter_var( $_POST['phone'], FILTER_SANITIZE_STRIPPED);
     $email = filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL);
     
-    $conn = connect()->prepare("Insert INTO users (name, email, phone) VALUE (?,?,?)");
-        
-    $conn->bindValue(1, $name);
-    $conn->bindValue(2, $phone);
-    $conn->bindValue(3, $email);
-    $conn->execute();
+    if(!search($email)){
+        $conn = connect()->prepare("Insert INTO users (name,phone, email) VALUE (?,?,?)");
+            
+        $conn->bindValue(1, $name);
+        $conn->bindValue(2, $phone);
+        $conn->bindValue(3, $email);
+        $conn->execute();
 
-    if(!$conn->rowCount()){
-        echo "
-        <div class='alert alert-danger'>
-            Não foi possível cadastrar!
-        </div>
-    ";
+        $msg['mensagem'] = "<div class='alert alert-danger'>
+        Cadastro realizado com sucesso!
+    </div>
+";
+
+    }else{
+        $msg['mensagem'] = "<div class='alert alert-danger'>
+        Cadastro realizado com sucesso!
+    </div>
+";
 
     }
 
 }
 
-
-
-
 function search($email){
 
+    $data = new \stdClass();
 
-    $conn = connect()->prepare("SELECT email FROM users WHERE email = :e");
-    $conn->bindParam(':e', $email);
-    $conn->execute();
-
-    $data = $conn->fetch(PDO::FETCH_ASSOC);
-    var_dump( $data);
+    $email = $email;
+    $conn = connect()->prepare('SELECT email FROM users WHERE email = :e');
+    $conn->bindParam(':e', $email); 
+    $conn->execute(); 
+    $data = $conn->fetch();
+    return $data;
 }
 
 
@@ -68,5 +73,8 @@ function show(){
 
 
 }
+
+
+
 
 ?>

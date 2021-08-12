@@ -32,19 +32,21 @@
     </div>
     <button  id="enviar" class="align-content-sm-center btn btn-primary">Enviar</button>
 </form>
-<table #direita>
-    <tr id="titulo">
-        <td>NOME</td>
-        <td>TELEFONE</td>
-        <td colspan="2">E-MAIL</td>
-    </tr>
-        <td id="data-table"></td>
-    </tr>
-</table>  
+<table id="direita">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="data-table"></tbody>
+</table>
 
 
 <script>
     $(function() {
+        search();
         $('#formulario').submit(function () {
             $.ajax({
                 url: "insert.php",
@@ -55,6 +57,7 @@
                 },
                 succcess: function(msgSucess){
                     alert(msgSucess);
+                    search();
                 }    
                 
             });
@@ -66,7 +69,8 @@
                 url:"search.php",
                 method: 'GET',
                 success: function(data){
-                    $("#msg").html(data);
+                    console.log(data);
+                    $("#data-table").html(data);
                 }
             });
         }
